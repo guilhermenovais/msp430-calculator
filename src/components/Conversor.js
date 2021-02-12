@@ -3,36 +3,25 @@ import Bit from "./Bit.js";
 import HexaDigit from "./HexaDigit.js";
 import { useState } from "react";
 
-function Conversor() {
+function Conversor(props) {
 
-    let [binaryNumber, setBinaryNumber] = useState([0, 0, 0, 0])
-
-    function toggle(bit) {
-        if (bit) {
-            return 0
-        }
-        else {
-            return 1
-        }
-    }
-
-    function mudarBit(posicao) {
-        let lista = [...binaryNumber]
-        lista[posicao] = toggle(binaryNumber[posicao])
-        setBinaryNumber(lista)
-        console.log(binaryNumber)
-    }
+    const bits = props.binaryNumbers[props.number][props.position]
 
     return (
         <div className="conversor">
             <div className="bits" >
-                <Bit className="bit3" onClick={() => mudarBit(3)} />
-                <Bit className="bit2" onClick={() => mudarBit(2)} />
-                <Bit className="bit1" onClick={() => mudarBit(1)} />
-                <Bit className="bit0" onClick={() => mudarBit(0)} />
+                <Bit className="bit3" value={bits[3]} onClick={() => props.changeBit(props.number,props.position,3)} />
+                <Bit className="bit2" value={bits[2]} onClick={() => props.changeBit(props.number,props.position,2)} />
+                <Bit className="bit1" value={bits[1]} onClick={() => props.changeBit(props.number,props.position,1)} />
+                <Bit className="bit0" value={bits[0]} onClick={() => props.changeBit(props.number,props.position,0)} />
             </div>
-
-            <h1>{binaryNumber}</h1>
+            <div className="hexa">
+                <HexaDigit 
+                bit0={bits[0]}
+                bit1={bits[1]}
+                bit2={bits[2]}
+                bit3={bits[3]} />
+            </div>
         </div>
     )
 

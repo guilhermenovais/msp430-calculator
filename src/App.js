@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import Conversor from "./components/Conversor.js";
+import Calculator from "./components/Calculator.js";
 
 function App() {
   return (
     <div className="App">
-      <Conversor />
+      <Calculator />
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import './HexaDigit.css'
 
-function binaryToHexa(bit0, bit1, bit2, bit3) {
-    const number = `${bit3}${bit2}${bit1}${bit0}`
+function binaryToHexa(bit3, bit2, bit1, bit0) {
+    const number = `${bit0}${bit1}${bit2}${bit3}`
     switch (number) {
         case '0000':
             return "0";
@@ -41,7 +41,7 @@ function binaryToHexa(bit0, bit1, bit2, bit3) {
 }
 
 function HexaDigit(props) {
-    let hexa = binaryToHexa(props.bit0.value, props.bit1.value, props.bit2.value, props.bit3.value)
+    let hexa = binaryToHexa(props.bit0, props.bit1, props.bit2, props.bit3)
 
     return (
         <div className="hexa-digit">
