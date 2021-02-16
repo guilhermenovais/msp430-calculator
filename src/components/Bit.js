@@ -2,8 +2,15 @@ import './Bit.css'
 import { useState } from "react";
 
 function Bit(props) {
+    let color
+    if(props.value) {
+        color = "#C5DCF7"
+    }
+    else {color = "#ff8484"}
+
     return (
-        <button onClick={props.onClick} className="binary-digit">
+        <button style={{backgroundColor: `${color}`}} onClick={() => {props.onClick()}} 
+        className="binary-digit">
             {props.value}
         </button>
     )

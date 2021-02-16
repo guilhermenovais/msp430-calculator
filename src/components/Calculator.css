@@ -4,3 +4,16 @@
     align-items: center;
     margin: 0px 100px;
 }
+
+.equal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 35px;
+    width: 60px;
+}
+
+.up, .down {
+    height: 13px;
+    background-color: black;
+}

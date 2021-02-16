@@ -69,15 +69,20 @@ function Calculator() {
                 <Conversor number={0} position={0} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
             </div>
 
+            <select id="operation" onChange={updateOperation}>
+                <option value="and">AND</option>
+                <option value="or">OR</option>
+            </select>
+
             <div className="num1">
                 <Conversor number={1} position={1} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
                 <Conversor number={1} position={0} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
             </div>
 
-            <select id="operation" onChange={updateOperation}>
-                <option value="and">AND</option>
-                <option value="or">OR</option>
-            </select>
+            <div className="equal">
+                <div className="up"></div>
+                <div className="down"></div>
+            </div>
 
             <div className="num3">
                 <Result number={2} position={1} binaryNumbers={binaryNumbers}/>
