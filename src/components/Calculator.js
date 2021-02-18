@@ -38,6 +38,19 @@ function Calculator() {
         result[1] = num0[1].map((bit1, index) => bit1|num1[1][index])
         return result
     }
+
+    function not(numero) {
+        let lista = [...binaryNumbers]
+        lista[numero][0] = lista[numero][0].map((bit) => toggle(bit))
+        lista[numero][1] = lista[numero][1].map((bit) => toggle(bit))
+        if(operation=="and") {
+            lista[2] = and(lista[0], lista[1])
+        }
+        if(operation=="or") {
+            lista[2] = or(lista[0], lista[1])
+        }
+        setBinaryNumbers(lista)
+    }
     
     function toggle(bit) {
         if (bit) {
@@ -67,6 +80,7 @@ function Calculator() {
             <div className="num0">
                 <Conversor number={0} position={1} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
                 <Conversor number={0} position={0} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
+                <button className="not1" onClick={() => not(0)}>NOT</button>
             </div>
 
             <select id="operation" onChange={updateOperation}>
@@ -77,6 +91,7 @@ function Calculator() {
             <div className="num1">
                 <Conversor number={1} position={1} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
                 <Conversor number={1} position={0} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
+                <button className="not2" onClick={() =>not(1)}>NOT</button>
             </div>
 
             <div className="equal">

@@ -1,4 +1,5 @@
 .calculator {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,4 +17,20 @@
 .up, .down {
     height: 13px;
     background-color: black;
+}
+
+#operation {
+    font-size: 1.3rem;
+}
+
+.not1 {
+    position: absolute;
+    left: 21px;
+    bottom: 0px;
+}
+
+.not2 {
+    position: absolute;
+    bottom: 0px;
+    left: 504px;
 }
