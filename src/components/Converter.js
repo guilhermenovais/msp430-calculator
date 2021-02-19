@@ -1,14 +1,13 @@
-import './Conversor.css';
+import './Converter.css';
 import Bit from "./Bit.js";
 import HexaDigit from "./HexaDigit.js";
-import { useState } from "react";
 
-function Conversor(props) {
+function Converter(props) {
 
     const bits = props.binaryNumbers[props.number][props.position]
 
     return (
-        <div className="conversor">
+        <div className="converter">
             <div className="bits" >
                 <Bit className="bit3" value={bits[3]} onClick={() => props.changeBit(props.number,props.position,3)} />
                 <Bit className="bit2" value={bits[2]} onClick={() => props.changeBit(props.number,props.position,2)} />
@@ -27,4 +26,4 @@ function Conversor(props) {
 
 }
 
-export default Conversor
+export default Converter

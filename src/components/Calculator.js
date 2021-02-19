@@ -1,5 +1,5 @@
 import './Calculator.css'
-import Conversor from './Conversor.js'
+import Converter from './Converter.js'
 import Result from './Result.js'
 import { useState } from 'react'
 
@@ -14,11 +14,14 @@ function Calculator() {
 
     function updateOperation() { //Changes the current result and sets the operation state to the new operation
         let lista = [...binaryNumbers]
-        if(operation=="and") {
+        if(document.getElementById("operation").value=="and") {
+            lista[2] = and(lista[0], lista[1])
+        }
+        if(document.getElementById("operation").value=="or") {
             lista[2] = or(lista[0], lista[1])
         }
-        if(operation=="or") {
-            lista[2] = and(lista[0], lista[1])
+        if(document.getElementById("operation").value=="xor") {
+            lista[2] = xor(lista[0], lista[1])  
         }
         setBinaryNumbers(lista)
         setOperation(document.getElementById("operation").value)
@@ -39,6 +42,13 @@ function Calculator() {
         return result
     }
 
+    function xor(num0, num1) {
+        let result = [[], []]
+        result[0] = num0[0].map((bit0, index) => bit0^num1[0][index])
+        result[1] = num0[1].map((bit1, index) => bit1^num1[1][index])
+        return result
+    }
+
     function not(numero) {
         let lista = [...binaryNumbers]
         lista[numero][0] = lista[numero][0].map((bit) => toggle(bit))
@@ -48,6 +58,9 @@ function Calculator() {
         }
         if(operation=="or") {
             lista[2] = or(lista[0], lista[1])
+        }
+        if(operation=="xor") {
+            lista[2] = xor(lista[0], lista[1])
         }
         setBinaryNumbers(lista)
     }
@@ -72,25 +85,29 @@ function Calculator() {
         if(operation=="or") {
             lista[2] = or(lista[0], lista[1])
         }
+        if(operation=="xor") {
+            lista[2] = xor(lista[0], lista[1])
+        }
         setBinaryNumbers(lista)
     }
 
     return (
         <div className="calculator">
             <div className="num0">
-                <Conversor number={0} position={1} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
-                <Conversor number={0} position={0} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
+                <Converter number={0} position={1} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
+                <Converter number={0} position={0} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
                 <button className="not1" onClick={() => not(0)}>NOT</button>
             </div>
 
             <select id="operation" onChange={updateOperation}>
                 <option value="and">AND</option>
                 <option value="or">OR</option>
+                <option value="xor">XOR</option>
             </select>
 
             <div className="num1">
-                <Conversor number={1} position={1} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
-                <Conversor number={1} position={0} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
+                <Converter number={1} position={1} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
+                <Converter number={1} position={0} changeBit={changeBit} binaryNumbers={binaryNumbers}/>
                 <button className="not2" onClick={() =>not(1)}>NOT</button>
             </div>
 
