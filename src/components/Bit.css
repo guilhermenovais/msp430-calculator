@@ -5,4 +5,6 @@
     transition: 0.3s linear;
     user-select: none;
     outline: none;
+    border-radius: 10px;
+    border-color: black;
 }
