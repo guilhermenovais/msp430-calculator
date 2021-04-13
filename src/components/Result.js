@@ -9,10 +9,10 @@ function Result(props) {
     return (
         <div className="result">
             <div className="bits" >
-                <Bit className="bit3" value={bits[3]} />
-                <Bit className="bit2" value={bits[2]} />
-                <Bit className="bit1" value={bits[1]} />
-                <Bit className="bit0" value={bits[0]} />
+                <Bit className="bit3" value={bits[3]} onClick = {() => 0} />
+                <Bit className="bit2" value={bits[2]} onClick = {() => 0} />
+                <Bit className="bit1" value={bits[1]} onClick = {() => 0} />
+                <Bit className="bit0" value={bits[0]} onClick = {() => 0} />
             </div>
             <div className="hexa">
                 <HexaDigit 

@@ -1,5 +1,4 @@
 import './Bit.css'
-import { useState } from "react";
 
 function Bit(props) {
     let color

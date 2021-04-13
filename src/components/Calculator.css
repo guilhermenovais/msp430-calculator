@@ -1,9 +1,26 @@
 .calculator {
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     margin: 0px 100px;
+}
+
+.num0 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.num1 {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+}
+
+.num3 {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
 }
 
 .equal {
@@ -12,8 +29,9 @@
     justify-content: space-between;
     height: 35px;
     width: 60px;
-    position: absolute;
-    left: 735px;
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
 }
 
 .up, .down {
@@ -22,7 +40,6 @@
 }
 
 #operation {
-    position: absolute;
     font-size: 1.3rem;
     cursor: pointer;
     background-color: black;
@@ -30,23 +47,22 @@
     color: white;
     border-radius: 3px;
     padding: 5px;
-    left: 240px;
+    width: 85px;
+    height: 40px;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
 }
 
-.not1 {
-    position: absolute;
-    left: 21px;
-    bottom: 0px;
-}
-
-.not2 {
-    position: absolute;
-    bottom: 0px;
-    left: 500px;
+.num0, .num1, .num3 {
+    display: flex;
+    flex-direction: column;
 }
 
 .not1, .not2 {
     padding: 5px 8px;
+    width: 50px;
     border-radius: 4px;
     border-color: black;
     background-color: black;
